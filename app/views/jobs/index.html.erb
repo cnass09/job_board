@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+  <div class = "notice"><%= flash[:notice] %> </div>
+<% end %>
+
+<!- bringing a little 90s flair->
+<marquee>Source great applicants - add your jobs now!!!!</marquee>
+
+<h1>RailsBridge Open Jobs</h1>
+
+<body>
+<table style="width:100%">
+  <tr>
+    <th>Job Title</th>
+    <th>Job Description</th> 
+    <th colspan="2">Links</th>
+  </tr>
+  <% @jobs.each do |job| %>
+  	<tr>
+  		<td><%= job.title %></td>
+  		<td><%= job.description %></td>
+  		<td><%= link_to "Edit", edit_job_path(job)%></td>
+  		<td><%= link_to "Delete", job, method: :delete %></td>
+	</tr>
+	<% end %>
+  </tr>
+</table>
+</body>
